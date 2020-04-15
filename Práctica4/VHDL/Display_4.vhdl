@@ -5,7 +5,8 @@ entity Display_4 is
            Disp3in : in  bit_VECTOR (3 downto 0);
            Decimal_point : in  bit_VECTOR (3 downto 0);
            CLK : in  bit;
-		   a, b, c, d, e, f, g, DPout : out bit);
+		   a, b, c, d, e, f, g, DPout : out bit
+		   Enable : out bit_vector (3 downto 0));
 end Display_4;
 
 architecture Behavioral of Display_4 is
@@ -58,6 +59,7 @@ begin
 			i(2) <= Disp0in(2);
 			i(3) <= Disp0in(3);
 			PDin <= Decimal_point(0);
+			Enable <= "0111";
 			
 		elsif Q(0) = '1' AND Q(1) = '0' then
 			i(0) <= Disp1in(0);
@@ -65,6 +67,7 @@ begin
 			i(2) <= Disp1in(2);
 			i(3) <= Disp1in(3);
 			PDin <= Decimal_point(1);
+			Enable <= "1011";
 			
 		elsif Q(0) = '0' AND Q(1) = '1' then
 			i(0) <= Disp2in(0);
@@ -72,13 +75,15 @@ begin
 			i(2) <= Disp2in(2);
 			i(3) <= Disp2in(3);
 			PDin <= Decimal_point(2);
+			Enable <= "1101";
 		
 		elsif Q(0) = '1' AND Q(1) = '1' then
 			i(0) <= Disp3in(0);
 			i(1) <= Disp3in(1);
 			i(2) <= Disp3in(2);
 			i(3) <= Disp3in(3);
-			PDin <= Decimal_point(3);			
+			PDin <= Decimal_point(3);	
+			Enable <= "1110";		
 		end if;
 	end process;
 	

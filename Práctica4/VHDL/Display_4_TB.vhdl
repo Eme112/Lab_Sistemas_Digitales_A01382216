@@ -13,11 +13,14 @@ ARCHITECTURE behavior OF Display_4_TB IS
          Disp3in : IN  bit_vector(3 downto 0);
          Decimal_point : IN  bit_vector(3 downto 0);
          CLK : IN  bit;
-         Disp0out : OUT  bit_vector(6 downto 0);
-         Disp1out : OUT  bit_vector(6 downto 0);
-         Disp2out : OUT  bit_vector(6 downto 0);
-         Disp3out : OUT  bit_vector(6 downto 0);
-         Decimal_point_out : OUT  bit_vector(3 downto 0)
+         a : OUT  bit;
+         b : OUT  bit;
+         c : OUT  bit;
+         d : OUT  bit;
+         e : OUT  bit;
+         f : OUT  bit;
+         g : OUT  bit;
+         DPout : OUT  bit
         );
     END COMPONENT;
     
@@ -31,14 +34,17 @@ ARCHITECTURE behavior OF Display_4_TB IS
    signal CLK : bit := '0';
 
  	--Outputs
-   signal Disp0out : bit_vector(6 downto 0);
-   signal Disp1out : bit_vector(6 downto 0);
-   signal Disp2out : bit_vector(6 downto 0);
-   signal Disp3out : bit_vector(6 downto 0);
-   signal Decimal_point_out : bit_vector(3 downto 0);
+   signal a : bit;
+   signal b : bit;
+   signal c : bit;
+   signal d : bit;
+   signal e : bit;
+   signal f : bit;
+   signal g : bit;
+   signal DPout : bit;
 
    -- Clock period definitions
-   constant CLK_period : time := 20 ns;
+   constant CLK_period : time := 10 ns;
  
 BEGIN
  
@@ -50,11 +56,14 @@ BEGIN
           Disp3in => Disp3in,
           Decimal_point => Decimal_point,
           CLK => CLK,
-          Disp0out => Disp0out,
-          Disp1out => Disp1out,
-          Disp2out => Disp2out,
-          Disp3out => Disp3out,
-          Decimal_point_out => Decimal_point_out
+          a => a,
+          b => b,
+          c => c,
+          d => d,
+          e => e,
+          f => f,
+          g => g,
+          DPout => DPout
         );
 
    -- Clock process definitions
@@ -69,35 +78,30 @@ BEGIN
 
    -- Stimulus process
    stim_proc: process
-   begin
-		wait for CLK_period;
+   begin		
+		Disp0in <= "0000";
+		Disp1in <= "0001";
+		Disp2in <= "0010";
+		Disp3in <= "0011";
+		Decimal_point <= "0010";
 		
-		Disp0in(0) <= '1';
-		Disp0in(1) <= '0';
-		Disp0in(2) <= '1';
-		Disp0in(3) <= '0';
+		wait for 50 ns;
 		
-		Disp1in(0) <= '1';
-		Disp1in(1) <= '1';
-		Disp1in(2) <= '0';
-		Disp1in(3) <= '0';
+		Disp0in <= "0100";
+		Disp1in <= "0101";
+		Disp2in <= "0110";
+		Disp3in <= "0111";
+		Decimal_point <= "0100";
 		
-		Disp2in(0) <= '1';
-		Disp2in(1) <= '0';
-		Disp2in(2) <= '0';
-		Disp2in(3) <= '0';
+		wait for 50 ns;
 		
-		Disp3in(0) <= '0';
-		Disp3in(1) <= '1';
-		Disp3in(2) <= '0';
-		Disp3in(3) <= '0';
+		Disp0in <= "1000";
+		Disp1in <= "1001";
+		Disp2in <= "0000";
+		Disp3in <= "0001";
+		Decimal_point <= "0001";
 		
-		Decimal_point(0) <= '0';
-		Decimal_point(1) <= '0';
-		Decimal_point(2) <= '0';
-		Decimal_point(3) <= '1';		
-
-      wait for CLK_period;
-	end process;
+		wait for 50 ns;
+   end process;
 
 END;

@@ -5,7 +5,7 @@ entity Display_4 is
            Disp3in : in  bit_VECTOR (3 downto 0);
            Decimal_point : in  bit_VECTOR (3 downto 0);
            CLK : in  bit;
-		   a, b, c, d, e, f, g, DPout : out bit
+		   a, b, c, d, e, f, g, DPout : out bit;
 		   Enable : out bit_vector (3 downto 0));
 end Display_4;
 

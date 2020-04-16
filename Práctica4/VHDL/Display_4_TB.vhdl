@@ -20,7 +20,8 @@ ARCHITECTURE behavior OF Display_4_TB IS
          e : OUT  bit;
          f : OUT  bit;
          g : OUT  bit;
-         DPout : OUT  bit
+         DPout : OUT  bit;
+         Enable : OUT  bit_vector(3 downto 0)
         );
     END COMPONENT;
     
@@ -42,6 +43,7 @@ ARCHITECTURE behavior OF Display_4_TB IS
    signal f : bit;
    signal g : bit;
    signal DPout : bit;
+   signal Enable : bit_vector(3 downto 0);
 
    -- Clock period definitions
    constant CLK_period : time := 10 ns;
@@ -63,7 +65,8 @@ BEGIN
           e => e,
           f => f,
           g => g,
-          DPout => DPout
+          DPout => DPout,
+          Enable => Enable
         );
 
    -- Clock process definitions

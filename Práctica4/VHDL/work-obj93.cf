@@ -1,0 +1,4 @@
+v 4
+file . "Display_4.vhdl" "3f98bc36afc39237e9702fd186cc6f413689e20b" "20200421042125.734":
+  entity display_4 at 1( 0) + 0 on 11;
+  architecture behavioral of display_4 at 12( 416) + 0 on 12;

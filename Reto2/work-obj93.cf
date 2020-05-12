@@ -1,0 +1,7 @@
+v 4
+file . "LCD_Controler_TB.vhdl" "0302f16b115dcb0b13e3ab46618463f1370cb3e9" "20200512171150.225":
+  entity lcd_controler_tb at 1( 0) + 0 on 161;
+  architecture behavior of lcd_controler_tb at 7( 91) + 0 on 162;
+file . "LCD_Controler.vhdl" "6bb0dc7b740a06ae05c84021382df68886d1a18c" "20200512171111.481":
+  entity lcd_controler at 1( 0) + 0 on 155;
+  architecture behavioral of lcd_controler at 13( 278) + 0 on 156;
